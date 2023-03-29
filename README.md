@@ -7,6 +7,8 @@
 </a>
 </p>
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E7JWJ6R)
+
 English | [简体中文](./README-zh_CN.md)
 
 Flutter Audio Record Plugin that supports `Record` `Pause` `Resume` `Stop` and provide access to audio level metering properties `average power` `peak power`

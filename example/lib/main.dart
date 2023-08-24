@@ -68,7 +68,7 @@ class RecorderExampleState extends State<RecorderExample> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: new FlatButton(
+                    child: new ElevatedButton(
                       onPressed: () {
                         switch (_currentStatus) {
                           case RecordingStatus.Initialized:
@@ -96,24 +96,18 @@ class RecorderExampleState extends State<RecorderExample> {
                         }
                       },
                       child: _buildText(_currentStatus),
-                      color: Colors.lightBlue,
                     ),
                   ),
-                  new FlatButton(
-                    onPressed:
-                        _currentStatus != RecordingStatus.Unset ? _stop : null,
-                    child:
-                        new Text("Stop", style: TextStyle(color: Colors.white)),
-                    color: Colors.blueAccent.withOpacity(0.5),
+                  new ElevatedButton(
+                    onPressed: _currentStatus != RecordingStatus.Unset ? _stop : null,
+                    child: new Text("Stop", style: TextStyle(color: Colors.white))
                   ),
                   SizedBox(
                     width: 8,
                   ),
-                  new FlatButton(
+                  new ElevatedButton(
                     onPressed: onPlayAudio,
-                    child:
-                        new Text("Play", style: TextStyle(color: Colors.white)),
-                    color: Colors.blueAccent.withOpacity(0.5),
+                    child: new Text("Play", style: TextStyle(color: Colors.white))
                   ),
                 ],
               ),
@@ -122,11 +116,9 @@ class RecorderExampleState extends State<RecorderExample> {
               new Text('Peak Power: ${_current?.metering?.peakPower}'),
               new Text("File path of the record: ${_current?.path}"),
               new Text("Format: ${_current?.audioFormat}"),
-              new Text(
-                  "isMeteringEnabled: ${_current?.metering?.isMeteringEnabled}"),
+              new Text( "isMeteringEnabled: ${_current?.metering?.isMeteringEnabled}"),
               new Text("Extension : ${_current?.extension}"),
-              new Text(
-                  "Audio recording duration : ${_current?.duration.toString()}")
+              new Text("Audio recording duration : ${_current?.duration.toString()}")
             ]),
       ),
     );
@@ -166,8 +158,7 @@ class RecorderExampleState extends State<RecorderExample> {
           print(_currentStatus);
         });
       } else {
-        Scaffold.of(context).showSnackBar(
-            new SnackBar(content: new Text("You must accept permissions")));
+        ScaffoldMessenger.of(context).showSnackBar(new SnackBar(content: new Text("You must accept permissions")));
       }
     } catch (e) {
       print(e);
